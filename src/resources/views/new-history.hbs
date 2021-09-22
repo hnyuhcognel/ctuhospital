@@ -1,0 +1,35 @@
+<div class='new-patient fadeInDown main-content'>
+	<div class='container mt-3 white-background'>
+		<h1 class='form__title'>LỊCH SỬ KHÁM BỆNH MỚI</h1>
+		<form
+			method='POST'
+			action='/lich-su-kham-benh/{{patient_id}}/luu'
+			class='row g-3'
+			id='new-patient__form'
+		>
+			<div class='col-12 mb-3 form-group'>
+				<label for='date' class='form-label'>Ngày khám:</label>
+				<input type='date' class='form-control' id='date' name="date"/>
+				<span class='form-message'></span>
+			</div>
+			<div class='col-12 mb-3 form-group'>
+				<label for='doctor' class='form-label'>Tên bác sĩ khám:</label>
+				<select class='form-control' id='doctor' name='doctor'>
+					<option value=''>-- Chọn --</option>
+					{{#each doctors}}
+						<option value="{{this.first-name}} {{this.last-name}}">{{this.first-name}} {{this.last-name}}</option>
+					{{/each}}
+				</select>
+				<span class='form-message'></span>
+			</div>
+			<div class='col-12 mb-3 form-group'>
+				<label for='disease' class='form-label'>Chẩn đoán:</label>
+				<input type='text' class='form-control' id='disease' name='disease' />
+				<span class='form-message'></span>
+			</div>
+			<div class='col-sm-12 col-12 col-md-3 mb-3'>
+				<button type='submit' class='btn btn-primary col-sm-12 col-12 col-md-12'>LƯU</button>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,111 @@
+nav{
+  margin: 1em auto;
+  font-size: 20px;
+}
+
+ul{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+ul.dropdown{ 
+  position: relative; 
+  width: 100%; 
+}
+
+ul.dropdown li{ 
+  font-weight: bold; 
+  float: left; 
+  width: 318px; 
+  position: relative;
+  background: #223c88;
+}
+
+ul.dropdown a:hover{ 
+  color: #000; 
+}
+
+ul.dropdown li a { 
+  display: block; 
+  padding: 12.5px 8px;
+  color: #fff; 
+  position: relative; 
+  text-align: center;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+ul.dropdown li a:hover,
+ul.dropdown li a.hover{ 
+  background: #162a69;
+  position: relative;
+  color: #fff;
+}
+
+
+ul.dropdown ul{ 
+ display: none;
+ position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 180px; 
+  z-index: 1000;
+}
+
+ul.dropdown ul li { 
+  font-weight: normal; 
+  background: #f6f6f6; 
+  color: #000; 
+  border-bottom: 1px solid #ccc; 
+}
+
+ul.dropdown ul li a{ 
+  display: block; 
+  color: #223c88 !important;
+  background: #eee !important;
+} 
+
+ul.dropdown ul li a:hover{
+  display: block; 
+  background: #162969d5 !important;
+  color: #fff !important;
+} 
+
+.drop {
+  height: 60px;
+}
+
+.drop a p {
+  text-align: left;
+}
+
+.drop > a{
+  position: relative;
+}
+
+
+
+.user .drop a p {
+  text-align: right;
+}
+
+.user {
+  max-width: 150px;
+  
+}
+
+.user ul.dropdown ul li{
+  max-width: 150px;
+
+}
+
+.user ul.dropdown li a {
+  max-width: 150px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user ul.dropdown ul li a {
+  max-width: 150px;
+}

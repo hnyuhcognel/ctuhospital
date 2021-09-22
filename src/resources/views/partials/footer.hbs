@@ -1,0 +1,48 @@
+
+<footer class="text-center text-lg-start bg-light text-muted">
+  <section class="footer__section">
+    <div class="container text-center text-md-start mt-5">
+      <div class="row mt-3">
+        <div class="col-md-6 col-lg-5 col-xl-5 mx-auto mb-4 mt-3">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Giáo viên hướng dẫn
+          </h6>
+          <p>
+            TS.Trần Hoàng Việt
+          </p>
+          <p>
+            Bộ môn Tin học ứng dụng
+          </p>
+        </div>
+        <div class="col-md-6 col-lg-5 col-xl-5 mx-auto mb-md-0 mb-4 mt-3">
+          <h6 class="text-uppercase fw-bold mb-4">
+            liên hệ
+          </h6>
+          <p>Lê Ngọc Huỳnh - B1809461</p>
+          <p><i class="fas fa-home me-3"></i> Đại học Cần Thơ</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+             huynhb1809461@student.ctu.edu.vn
+          </p>
+          <p><i class="fas fa-phone me-3"></i> 0338787821</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="text-center p-4" style="background-color: #223c88; color: #fff;">
+    © 2021 QUẢN LÍ ĐĂNG KÝ KHÁM CHỮA BỆNH VÀ LỊCH SỬ BỆNH CỦA BỆNH NHÂN
+  </div>
+</footer>
+<script>
+  var tableHeight = document.querySelector('table').offsetHeight
+  if(document.querySelector('.patient-list__container') && window.innerWidth < 1140) {
+    	document.querySelector("footer").setAttribute("style", "width: 1140px;")
+  }
+
+  if(document.querySelector('.search__content') && window.innerWidth < 850) {
+    	document.querySelector("footer").setAttribute("style", `width: 850px;position: relative;top: calc(${tableHeight}px - 100px)`)
+  }
+  else if(tableHeight > 331) {
+    	document.querySelector("footer").setAttribute("style", `position: relative; top: calc(${tableHeight}px - 320px)`)
+  }
+</script>

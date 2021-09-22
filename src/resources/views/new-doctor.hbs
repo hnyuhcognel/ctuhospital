@@ -1,0 +1,85 @@
+<div class='new-patient fadeInDown main-content'>
+	<div class='container mt-3 white-background'>
+		<h1 class='form__title'>THÔNG TIN BÁC SĨ MỚI</h1>
+		<form
+			method='POST'
+			action='/bac-si/luu'
+			class='row g-3'
+			id='new-patient__form'
+		>
+			<div class='col-12 mb-3 form-group'>
+				<label for='first-name' class='form-label'>Họ và tên đệm:</label>
+				<input type='text' class='form-control' id='first-name' placeholder='Lê Ngọc' name='first-name' />
+				<span class='form-message'></span>
+			</div>
+			<div class='col-12 mb-3 form-group'>
+				<label for='last-name' class='form-label'>Tên:</label>
+				<input type='text' class='form-control' id='last-name' placeholder='Huỳnh' name='last-name' />
+				<span class='form-message'></span>
+			</div>
+			<div class='col-12 mb-3 form-group'>
+				<label for='faculty' class='form-label'>Chuyên khoa:</label>
+				<select class='form-control' id='faculty' name='faculty'>
+					<option value=''>-- Chọn --</option>
+					<option value='Bệnh lý học'>Bệnh lý học</option>
+					<option value="Bệnh nghề nghiệp">Bệnh nghề nghiệp</option>
+					<option value="Bệnh truyền nhiễm">Bệnh truyền nhiễm</option>
+					<option value="Chăm sóc giảm nhẹ">Chăm sóc giảm nhẹ</option>
+					<option value="Chấn thương chỉnh hình">Chấn thương chỉnh hình</option>
+					<option value="Dị ứng và miễn dịch học">Dị ứng và miễn dịch học</option>
+					<option value="Gây mê">Gây mê</option>
+					<option value="Hồi sức cấp cứu">Hồi sức cấp cứu</option>
+					<option value='Hồi sức tích cực'>Hồi sức tích cực</option>
+					<option value="Khoa tâm thần và tâm lý trị liệu cho trẻ em và trẻ mới lớn">Khoa tâm thần và tâm lý trị liệu cho trẻ em và trẻ mới lớn</option>
+					<option value="Khoa tiêu hóa">Khoa tiêu hóa</option>
+					<option value="Lão khoa">Lão khoa</option>
+					<option value="Ngoại lồng ngực">Ngoại lồng ngực</option>
+					<option value="Ngoại nhi">Ngoại nhi</option>
+					<option value="Ngoại thần kinh">Ngoại thần kinh</option>
+					<option value="Ngoại tổng quát">Ngoại tổng quát</option>
+					<option value="Nhãn khoa">Nhãn khoa</option>
+					<option value="Nhi dị ứng">Nhi dị ứng</option>
+					<option value="Nhi huyết học và nhi ung biếu">Nhi huyết học và nhi ung biếu</option>
+					<option value="Nhi khoa">Nhi khoa</option>
+					<option value="Nhi nội tiết và nhi tiểu đường">Nhi nội tiết và nhi tiểu đường</option>
+					<option value="Nhi thận">Nhi thận</option>
+					<option value="Nhi tiêu hóa, nhi gan-mật-tụy và nhi dinh dưỡng">Nhi tiêu hóa, nhi gan-mật-tụy và nhi dinh dưỡng</option>
+					<option value="Nhi Tim mạch">Nhi Tim mạch</option>
+					<option value="Nhi truyền nhiễm">Nhi truyền nhiễm</option>
+					<option value="Nội khoa">Nội khoa</option>
+					<option value="Nội tiết">Nội tiết</option>
+					<option value="Phẫu thuật đại trực tràng">Phẫu thuật đại trực tràng</option>
+					<option value="Phẫu thuật mạch máu">Phẫu thuật mạch máu</option>
+					<option value="Phẫu thuật tạo hình">Phẫu thuật tạo hình</option>
+					<option value="Phẫu thuật thẩm mỹ, tạo hình, phục hồi">Phẫu thuật thẩm mỹ, tạo hình, phục hồi</option>
+					<option value="Phẫu thuật tim mạch - lồng ngực">Phẫu thuật tim mạch - lồng ngực</option>
+					<option value="Phẫu thuật ung thư tổng quát">Phẫu thuật ung thư tổng quát</option>
+					<option value="Phổi">Phổi</option>
+					<option value="Sản phụ khoa">Sản phụ khoa</option>
+					<option value="Sơ sinh">Sơ sinh</option>
+					<option value="Sức khỏe cộng đồng">Sức khỏe cộng đồng	</option>
+					<option value="Tai mũi họng (y khoa)">Tai mũi họng (y khoa)</option>
+					<option value="Tâm thần">Tâm thần</option>
+					<option value="Thận học">Thận học</option>
+					<option value="Thần kinh học">Thần kinh học</option>
+					<option value="Thần kinh sinh lý học lâm sàng">Thần kinh sinh lý học lâm sàng</option>
+					<option value="Tiết niệu">Tiết niệu</option>
+					<option value="Tim mạch">Tim mạch</option>
+					<option value="Vi sinh học">Vi sinh học</option>
+					<option value="Vô tuyến học">Vô tuyến học</option>
+					<option value="Vô tuyến học can thiệp">Vô tuyến học can thiệp</option>
+					<option value="Vô tuyến trị liệu">Vô tuyến trị liệu</option>
+					<option value="Y hạt nhân">Y hạt nhân</option>
+					<option value="Y học không gian">Y học không gian</option>
+					<option value="Y học thể thao">Y học thể thao</option>
+					<option value="Y tế công cộng">Y tế công cộng</option>
+
+				</select>
+				<span class='form-message'></span>
+			</div>
+			<div class='col-sm-12 col-12 col-md-3 mb-3'>
+				<button type='submit' class='btn btn-primary col-sm-12 col-12 col-md-12'>LƯU</button>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,28 @@
+h1 {
+	text-align: center;
+	color: #223c88;
+}
+
+.align-center {
+	position: absolute;
+	top: calc(50%  + 60px);
+	left: 50%;
+	transform: translate(-50%, calc(-50% - 60px));
+}
+
+.new-patient, .patient-list, .update-patient {
+	height: calc(100% - 60px);
+	position: relative;
+}
+
+.form-control {
+	margin-bottom: 9px;
+}
+
+.form-control:focus {
+	box-shadow: none;
+}
+
+.white-background {
+	background-color: #fff;
+}

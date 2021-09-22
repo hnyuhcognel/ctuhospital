@@ -1,0 +1,291 @@
+/* > PC low resolution */
+@media (min-width: 992px) and (max-width: 1239px) {
+	.header__title {
+		width: 65%;
+	}
+
+	.main-content {
+		height: calc(100% + 100px);
+	}
+
+	.main-content.container-not-found {
+		height: 100%;
+	}
+}
+
+/* Mobile & Tablet */
+@media (max-width: 992px) {
+	.navbar__left.help {
+		border: none;
+	}
+
+	.header__navbar-left p,
+	.header__navbar-right p {
+		margin: 0;
+		padding: 0 7px;
+		font-size: 15px;
+	}
+
+	.header__navbar-right p {
+		padding: 0;
+	}
+
+	.navbar-left i,
+	.navbar-right i,
+	.user ul.dropdown li a i {
+		font-size: 15px;
+		margin-top: 4px;
+	}
+
+	.header__navbar-left a,
+	.header__navbar-right a {
+		line-height: 26px;
+	}
+
+	.info {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.info img {
+		margin-bottom: 10px;
+	}
+
+	.main-content {
+		height: calc(100% - 240px);
+	}
+}
+
+/* Tablet */
+@media (min-width: 767px) and (max-width: 992px) {
+	.header__navbar {
+		height: 45px;
+	}
+
+	.header__title {
+		padding: 0;
+		width: 55%;
+	}
+
+	.header__title--logo {
+		width: 25%;
+	}
+
+	.navbar-left.home,
+	.header__navbar-right a {
+		padding-top: 10px;
+		height: 45px;
+	}
+
+	.drop {
+		height: 45px;
+	}
+
+	ul.dropdown li {
+		width: 250px;
+	}
+
+	ul.dropdown li a {
+		padding: 9.5px 8px;
+	}
+
+	.header__title h2 {
+		font-size: 45px;
+		padding-bottom: 10px;
+	}
+
+	.header__search--input {
+		width: 66.6%;
+	}
+
+	.align-center {
+		transform: translate(-50%, calc(-50% - 40px));
+	}
+
+	.form__title {
+		font-size: 30px;
+	}
+
+	.main-content {
+		height: calc(100% + 100px);
+	}
+
+	.main-content.container-not-found {
+		height: calc(100% + 60px);
+	}
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+	.wrapper__header {
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 50px;
+	}
+
+	.navbar__mobile--logo {
+		display: block;
+	}
+
+	.header__navbar {
+		height: 5px;
+	}
+
+	nav.features {
+		display: none;
+	}
+
+	.header__navbar .navbar-left,
+	.header__navbar-right {
+		display: none;
+	}
+
+	.header__navbar .navbar__bars-btn {
+		display: block;
+	}
+
+	.header__title {
+		width: 100%;
+		padding-bottom: 10px;
+	}
+
+	.header__title--logo {
+		width: 150px;
+	}
+
+	.header__title h2 {
+		font-size: 35px;
+		line-height: 50px;
+		padding-left: 5px;
+	}
+
+	.header__search--input {
+		width: 83.3%;
+	}
+
+	.header__search--input input {
+		border-radius: 30px;
+		margin-left: 10px;
+	}
+
+	.search-input--icon {
+		width: 55px;
+	}
+
+	.sign-in__title {
+		font-size: 30px;
+	}
+
+	.wrapper--sign-in,
+	.wrapper--sign-up {
+		position: relative;
+		top: 75;
+		padding: 20px;
+	}
+
+	#formContentSignUp,
+	#formContentChangePass {
+		padding: 0;
+	}
+
+	#formContentSignIn {
+		padding: 0;
+	}
+
+	.form-message {
+		font-size: 12px;
+	}
+
+
+	#formfooter {
+		position: unset;
+		width: 100%;
+	}
+
+	.button-mobile {
+		margin: 0;
+		flex-direction: column-reverse;
+		height: 100px;
+		width: 100%;
+		padding: 0 15px;
+	}
+
+	.sign-in input[type='button'],
+	.sign-in input[type='submit'],
+	.sign-in input[type='reset'],
+	.sign-up input[type='button'],
+	.sign-up input[type='submit'],
+	.sign-up input[type='reset'],
+	.back {
+		width: 100%;
+	}
+
+	.sign-up.flex {
+		flex-direction: column;
+	}
+
+	.sign-up.flex .form-group {
+		width: 100%;
+	}
+
+	.sign-in-suggest {
+		padding: 0 15px;
+		font-size: 14px;
+	}
+
+	.error-message {
+		font-size: 13px;
+	}
+
+	.new-patient {
+		top: 50;
+	}
+
+	.align-center {
+		position: relative;
+		top: 0;
+		left: 0;
+		transform: translate(0, 0);
+	}
+
+	.form__title {
+		font-size: 22px;
+	}
+
+	.patient-list {
+		top: 0;
+	}
+
+	.patient-list__container {
+		position: relative;
+		top: 50;
+	}
+
+	.info-group p,
+	.info-group label {
+		font-size: 16px;
+	}
+
+	.history h1 {
+		font-size: 22px;
+	}
+
+	.history table {
+		font-size: 15px;
+	}
+
+	.register {
+		top: 50;
+	}
+
+	.main-content {
+		height: calc(100% + 500px);
+	}
+
+	.main-content.container-not-found {
+		height: 100%;
+	}
+}
+

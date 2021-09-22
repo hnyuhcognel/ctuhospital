@@ -1,0 +1,406 @@
+* {
+	font-family: 'Roboto';
+	-webkit-tap-highlight-color: transparent;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none; 
+	margin: 0; 
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.main-content {
+	display: initial;
+	position: relative;
+	top: 75;
+	height: calc(100% + 20px);
+}
+
+.patient-list__container {
+	min-height: 100%;
+}
+
+.wrapper__header {
+	background-color: #223c88;
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+}
+
+.wrapper__header .container {
+	position: initial;
+}
+
+.header__navbar {
+	display: flex;
+	height: 60px;
+	justify-content: space-between;
+}
+
+.navbar__mobile--logo {
+	display: none;
+	width: 35px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.navbar__bars-btn {
+	color: #f1f1f1;
+	display: none;
+	position: absolute;
+	font-size: 23px;
+	top: 13;
+	left: 13;
+}
+
+.navbar__input {
+	display: none;
+}
+
+.navbar__input:checked ~ .navbar__overlay {
+	display: block;
+}
+
+.navbar__input:checked ~ .sidebar-mobile {
+	transform: translateX(0%);
+}
+
+.navbar__overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 1;
+	display: none;
+	animation: fadeIn linear 0.2s;
+}
+
+.sidebar-mobile {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 320px;
+	max-width: 100%;
+	background-color: #fff;
+	z-index: 2;
+	transform: translateX(-110%);
+	transition: transform linear 0.2s;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.sidebar-mobile__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 15px;
+	box-shadow: -6px 3px 20px #ccc;
+	height: 50px;
+	box-sizing: border-box;
+}
+
+.sidebar-mobile__header--link {
+	width: 10%;
+}
+
+.sidebar-mobile__header--logo {
+	width: 100%;
+}
+
+.sidebar-mobile__header--title {
+	font-size: 20px;
+	font-family: 'Oswald';
+	margin: auto;
+	color: #243e89;
+}
+
+.side__mobile--close i {
+	color: #243e89;
+
+	font-size: 35px;
+}
+
+.sidebar__link {
+	display: flex;
+	text-decoration: none;
+	color: #243e89!important;
+
+	font-size: 20px;
+	padding: 10px 15px;
+	font-family: 'Oswald';
+	text-transform: uppercase;
+}
+
+.sidebar__link.sign-in, 
+.sidebar__link.sign-up {
+	display: none;
+}
+
+.sidebar-mobile__main {
+	height: calc(100vh - 86px);
+	align-items: flex-start;
+	overflow-y: auto;
+}
+
+.sidebar-mobile__main .sidebar__link:hover {
+	background-color: #ccc9;
+}
+
+.sidebar-mobile__footer {
+	display: flex;
+	border-top: 1px solid #243d8960;
+	width: 100%;
+	justify-content: space-between;
+	padding: 0 15px;
+	box-sizing: border-box;
+	background-color: #fff;
+	height: 50px;
+}
+
+.side__footer--social {
+	margin: 0;
+	padding: 7px 0;
+	align-items: center;
+}
+
+.side__footer--social p {
+	margin: 0;
+	font-family: 'Oswald';
+	padding-left: 10px;
+}
+
+.navbar__bars-btn,
+.side__mobile--close,
+.navbar__overlay {
+	cursor: pointer;
+}
+
+.header__navbar-left, .header__navbar-right {
+	align-items: center;
+	display: flex;
+}
+
+.header__navbar-left a, .header__navbar-right a {
+	text-decoration: none;
+	color: #f1f1f1;
+	display: flex;
+	line-height: 35px;
+}
+
+.header__navbar-left a {
+	border: none;
+}
+
+.header__navbar-left p, .header__navbar-right p {
+	margin: 0;
+	padding: 0 10px;
+	font-size: 20px;
+}
+
+.navbar-left.home,
+.header__navbar-right a {
+	padding: 12.5px;
+	height: 60px;
+}
+
+.btn.btn-secondary.dropdown-toggle {
+	background-color: transparent;
+	border: none;
+	color: #fff;
+}
+.btn.btn-secondary.dropdown-toggle:active {
+	background-color: transparent;
+	box-shadow: none;
+}
+.btn.btn-secondary.dropdown-toggle:focus{
+	box-shadow: none;
+}
+
+.btn.btn-secondary.dropdown-toggle:active:focus {
+	box-shadow: none;
+}
+
+.navbar-left.home {
+	border-right: 1px solid #fff;
+}
+
+.navbar-left.home:hover,
+.header__navbar-right a:hover {
+	background-color: #162a69;
+}
+
+
+.navbar-left.home p {
+	padding-left: 6px;
+}
+
+.header__navbar-left .register, .header__navbar-right .sign-up {
+	border: none;
+}
+
+.navbar-left i, 
+.navbar-right i,
+.user ul.dropdown li a i {
+	font-size: 20px;
+	margin-top: 6px;
+}
+
+.header__navbar-right i {
+	padding-right: 6px;
+}
+
+.header__navbar-right p {
+	padding: 0;
+}
+
+.navbar-right.sign-in,
+.navbar-right.sign-up {
+	display: none;
+}
+
+.header__title--logo {
+	width: 15%;
+}
+
+.header__title {
+	text-align: center;
+	width: 55%;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	padding-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+}
+
+.header__title h2 {
+	color: #223c88;
+	font-weight: 1000;
+	font-size: 60px;
+	font-family: 'Oswald';
+	margin: 0;
+}
+
+.header__search {
+	display: flex;
+	position: relative;
+}
+
+.header__search--input {
+	width: 58.3%;
+	color: #f1f1f1;
+	height: 50px;
+	box-sizing: border-box;
+	border: 1px solid rgb(0 0 0 / 25%);
+	border-radius: 30px;
+	display: flex;
+	background-color: white;
+	padding: 2px 0;
+	margin: auto;
+}
+
+.search-input--icon {
+	display: flex;
+	width: 65px;
+	margin-bottom: 0;
+}
+
+.header__search--input:hover {
+	box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+}
+
+.header__search--input i {
+	color: #9ca2a8;
+	margin: auto;
+	box-sizing: border-box;
+	cursor: pointer;
+	font-size: 15px;
+	align-items: center;
+	display: flex;
+}
+
+.header__search--input input {
+	border-color: transparent;
+	width: calc(100% - 20px);
+	box-sizing: border-box;
+	font-size: 20px;
+	margin-left: 15px;
+}
+
+.header__search--input input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.form-control {
+	color: #000;
+}
+
+.form-control::placeholder {
+	color: #bbb;
+}
+
+.add-history {
+	position: unset;
+	line-height: 30px;
+	width: 120px;
+}
+
+footer {
+	margin-top: 90px;
+}
+
+.footer__section {
+	background-color: #223c88d9;
+	color: #fff;
+}
+
+
+input:focus {
+	outline: none;
+}
+
+.wrapper__main {
+	margin-top: 30px;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}

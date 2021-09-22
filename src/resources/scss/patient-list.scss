@@ -1,0 +1,32 @@
+.patient-list {
+  position: relative;
+}
+
+.patient-list__table {
+  font-size: 14px;
+}
+
+.patient-list__container {
+  min-width: 1140px;
+}
+
+.add-patient {
+  text-decoration: none;
+  color: #fff;
+  background-color: #223c88;
+  position: absolute;
+  top: 0;
+  line-height: 40px;
+  width: 140px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.add-patient:hover {
+  color: #fff;
+  background-color: #223b88e1;
+}
+
+.add-patient:active {
+  transform: scale(0.95);
+}

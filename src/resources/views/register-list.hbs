@@ -1,0 +1,89 @@
+<div class='patient-list fadeInDown main-content'>
+	<div class='container mt-3 white-background patient-list__container'>
+		<h1 class='patient-list__title'>DANH SÁCH ĐĂNG KÝ KHÁM BỆNH</h1>
+		<a class='add-patient' href='/dang-ky-kham-benh'>Đăng ký khám</a>
+		<table class='table patient-list__table'>
+			<thead>
+				<tr>
+					<th scope='col'>STT</th>
+					<th scope='col'>Mã phiếu</th>
+					<th scope='col'>Tên bệnh nhân</th>
+					<th scope='col'>Số điện thoại</th>
+					<th scope='col'>Ngày khám</th>
+					<th scope='col'>Giờ khám</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each registers}}
+					<tr>
+						<th scope='row'>{{inc @index}}</th>
+						<td>{{this.register_id}}</td>
+						<td>{{this.first-name}} {{this.last-name}}</td>
+						<td>{{this.phone-number}}</td>
+						<td class='doe-field'>{{this.date-of-examination}}</td>
+						<td class='doe-time-field'>{{this.date-of-examination}}</td>
+						<td>
+							<a href='/dang-ky-kham-benh/{{this.register_id}}/chinh-sua'>Sửa</a>
+						</td>
+						<td>
+							<a
+								href='/dang-ky-kham-benh'
+								id='delete-link'
+								data-id='{{this.register_id}}'
+								data-toggle='modal'
+								data-target='#confirm-delete'
+							>Xóa</a>
+						</td>
+					</tr>
+
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<form name="delete-register-form" method="POST"></form>
+
+<div id='confirm-delete' class='modal' tabindex='-1' role='dialog'>
+	<div class='modal-dialog' role='document'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<h5 class='modal-title'>Xác nhận xóa</h5>
+				<button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+					<span aria-hidden='true'>&times;</span>
+				</button>
+			</div>
+			<div class='modal-body'>
+				<p>Bạn có chắc muốn xóa phiếu khám bệnh này?</p>
+			</div>
+			<div class='modal-footer'>
+				<button id="delete-register-btn" class='btn btn-danger'>Xóa</button>
+				<button type='button' class='btn btn-secondary' data-dismiss='modal'>Hủy</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var id
+		var deleteForm = document.forms['delete-register-form']
+		var deleteRegisterBtn = document.getElementById('delete-register-btn')
+
+		$('#confirm-delete').on('show.bs.modal', function (event) { 
+			var button = $(event.relatedTarget) 
+			id = button.data('id') 
+		})
+		deleteRegisterBtn.onclick = function() {
+			deleteForm.action = id + '?_method=DELETE'
+			deleteForm.submit()
+		}
+	})
+
+	$('footer').ready(function() {
+		if($(this).width() <= 767 ) $(this).css('width','1140px');
+	});
+
+</script>

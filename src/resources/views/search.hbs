@@ -1,0 +1,133 @@
+<div class='search__container fadeInDown main-content'>
+	<div class='container white-background search__content'>
+		<div class='info'>
+
+			<img class='col-lg-2 col-md-3 col-sm-3 col-4' src='/uploads/{{patient.avatar}}' />
+			<div class='info-details col-lg-10 col-md-12 col-sm-12'>
+				<div class='patient-id info-group col-lg-6 col-md-6 col-sm-6'>
+					<label for=''>Mã số bệnh nhân:</label>
+					<p class='patient-id-content'>{{patient.patient_id}}</p>
+				</div>
+				<div class='full-name info-group col-lg-6 col-md-6 col-sm-6'>
+					<label for=''>Họ và tên:</label>
+					<p class='full-name-content'>{{patient.first-name}} {{patient.last-name}}</p>
+				</div>
+				<div class='gender info-group col-lg-6 col-md-6 col-sm-6'>
+					<label for=''>Giới tính:</label>
+					<p class='gender-content'>{{patient.gender}}</p>
+				</div>
+				<div class='blood-group info-group col-lg-6 col-md-6 col-sm-6'>
+					<label for=''>Nhóm máu:</label>
+					<p class='blood-group-content'>{{patient.blood-group}}</p>
+				</div>
+				<div class='day-of-birth info-group col-lg-6 col-md-6 col-sm-6'>
+					<label for=''>Ngày sinh:</label>
+					<p class='date-of-birth-content'>{{patient.date-of-birth}}</p>
+				</div>
+				<div class='place-of-birth info-group col-lg-6 col-md-6 col-sm-6'>
+					<label for=''>Nơi sinh:</label>
+					<p class='place-of-birth-content'>{{patient.place-of-birth}}</p>
+				</div>
+				<div class='phone-number info-group col-lg-6 col-md-6 col-sm-6'>
+					<label for=''>Số điện thoại:</label>
+					<p class='phone-number-content'>{{patient.phone-number}}</p>
+				</div>
+				<div class='insurance-number info-group col-lg-6 col-md-6 col-sm-6'>
+					<label for=''>Số BHXH:</label>
+					<p class='insurance-number-content'>{{patient.insurance-number}}</p>
+				</div>
+				<div class='email info-group col-lg-12 col-md-12 col-sm-12'>
+					<label for=''>E-mail:</label>
+					<p class='email-content'>{{patient.email}}</p>
+				</div>
+				<div class='address info-group col-lg-12 col-md-12 col-sm-12'>
+					<label for=''>Địa chỉ:</label>
+					<p class='address-content'>{{patient.address}},
+						{{patient.village}},
+						{{patient.province}},
+						{{patient.city}}</p>
+				</div>
+			</div>
+		</div>
+		<div class='update-patient__link'>
+			<a href='/benh-nhan/{{patient.patient_id}}/chinh-sua'>Chỉnh sửa thông tin bệnh nhân</a>
+		</div>
+		<div class='history'>
+			<h1>LỊCH SỬ KHÁM CHỮA BỆNH</h1>
+			<table class='table'>
+				<thead>
+					<tr>
+						<th scope='col'>STT</th>
+						<th scope='col'>Ngày khám</th>
+						<th scope='col'>Tên bác sĩ khám</th>
+						<th scope='col'>Chẩn đoán bệnh</th>
+						<th colspan="2"><a class='add-patient add-history' href='/lich-su-kham-benh/{{patient.patient_id}}/them' style="top: 245">Thêm lịch sử</a></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each history}}
+						<tr>
+							<th scope='row'>{{inc @index}}</th>
+							<td class="date-examinated">{{this.date}}</td>
+							<td>{{this.doctor}}</td>
+							<td>{{this.disease}}</td>
+								<td>
+							<a href='/lich-su-kham-benh/{{this.patient_id}}/{{this.history_id}}/chinh-sua'>Sửa</a>
+						</td>
+						<td>
+							<a
+								href='/lich-su-kham-benh'
+								id="delete-link"
+								data-id='{{this.history_id}}'
+								data-toggle='modal'
+								data-target='#confirm-delete'
+							>Xóa</a>
+						</td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>
+
+	<form name="delete-patient-form" method="POST"></form>
+
+<div id='confirm-delete' class='modal' tabindex='-1' role='dialog'>
+	<div class='modal-dialog' role='document'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<h5 class='modal-title'>Xác nhận xóa</h5>
+				<button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+					<span aria-hidden='true'>&times;</span>
+				</button>
+			</div>
+			<div class='modal-body'>
+				<p>Bạn có chắc muốn xóa dòng này?</p>
+			</div>
+			<div class='modal-footer'>
+				<button id="delete-patient-btn" class='btn btn-danger'>Xóa</button>
+				<button type='button' class='btn btn-secondary' data-dismiss='modal'>Hủy</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var id
+		var deleteForm = document.forms['delete-patient-form']
+		var deletePatientBtn = document.getElementById('delete-patient-btn')
+
+		$('#confirm-delete').on('show.bs.modal', function (event) { 
+			var button = $(event.relatedTarget) 
+			id = button.data('id') 
+		})
+		deletePatientBtn.onclick = function() {
+			deleteForm.action = '/lich-su-kham-benh/' + id + '?_method=DELETE'
+			deleteForm.submit()
+		}
+	})
+</script>

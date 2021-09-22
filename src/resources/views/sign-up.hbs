@@ -1,0 +1,56 @@
+<div class="wrapper--sign-up fadeInDown main-content " style="display: flex;">
+  <div id="formContentSignUp">
+    <div class="fadeIn first">
+      <h1 class="sign-up__title">ĐĂNG KÝ</h1>
+    </div>
+
+    <form method="POST" action="/dang-ky/submit" class="sign-up flex">
+      <div class="form-group  full-width col-12">
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" class="fadeIn second" name="username">
+        <span class="form-message"></span>
+      </div>
+      <div class="form-group col-12">
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" class="fadeIn third" name="password">
+        <span class="form-message"></span>
+      </div>
+      <div class="form-group col-12">
+        <label for="confirm-password">Xác nhận mật khẩu:</label>
+        <input type="password" id="confirm-password" class="fadeIn third" >
+        <span class="form-message"></span>
+      </div>
+      <div class="mb-2 sign-in-suggest">
+        Bạn đã có có tài khoản?
+        <a href="/dang-nhap">Đăng nhập</a>
+      </div>
+      {{#if errors}}
+				<p class="error-message">{{errors}}</p>
+			{{/if}}
+      <div class="flex mt-2 mb-2 form--btn button-mobile">
+        <a href="/" class="back fadeIn fourth">
+          Quay lại
+        </a>
+        <input type="submit" class="fadeIn fourth" value="Đăng ký">
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<script>
+
+  function myFunction(x) {
+    if (x.matches) {
+      document.querySelector(".navbar-right.sign-in").style.display = "flex"
+	    document.querySelector(".user").style.display = "none"
+    }
+    else {
+      document.querySelector(".navbar-right.sign-in").style.display = "none"
+	    document.querySelector(".user").style.display = "none"
+    }
+  }
+  var x = window.matchMedia("(min-width: 767px)")
+  myFunction(x)
+  x.addListener(myFunction)
+</script>

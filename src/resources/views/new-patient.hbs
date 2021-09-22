@@ -1,0 +1,118 @@
+<div class='new-patient fadeInDown main-content'>
+	<div class='container mt-3 white-background'>
+		<h1 class='form__title'>THÔNG TIN BỆNH NHÂN MỚI</h1>
+		<form method="POST" action="/benh-nhan/luu" enctype="multipart/form-data" class='row g-3' id='new-patient__form'>
+			<div class='col-md-4 col-lg-6 col-xl-3 col-sm-12 col-12 col-md-6 mb-3 form-group'>
+				<label for='first-name' class='form-label'>Họ và tên đệm:</label>
+				<input type='text' class='form-control' id='first-name' placeholder='Lê Ngọc' name="first-name"/>
+				<span class='form-message'></span>
+			</div>
+			<div class='col-md-4 col-lg-6 col-xl-3 col-sm-12 col-12 col-md-6 mb-3 form-group'>
+				<label for='last-name' class='form-label'>Tên:</label>
+				<input type='text' class='form-control' id='last-name' placeholder='Huỳnh' name='last-name'/>
+				<span class='form-message'></span>
+			</div>
+			<div class='col-md-4 col-lg-6 col-xl-3 col-sm-12 col-12 col-md-6 mb-3 form-group'>
+				<label for='gender' class='form-label'>Giới tính:</label>
+				<select class='form-control' id='gender' name='gender'>
+					<option value='' selected>-- Chọn --</option>
+					<option value='Nữ'>Nữ</option>
+					<option value='Nam'>Nam</option>
+				</select>
+				<span class='form-message'></span>
+			</div>
+			<div class='col-md-4 col-lg-6 col-xl-3 col-sm-12 col-12 col-md-6 mb-3 form-group'>
+				<label for='insurance-number' class='form-label'>Số BHXH:</label>
+				<input type='number' class='form-control' id='insurance-number' placeholder='1234567890' maxlength="10" name='insurance-number'/>
+				<span class='form-message'></span>
+			</div>
+			<div class='col-sm-12 col-12 col-sm-6 col-lg-6 col-xl-4 col-md-6 mb-3 form-group'>
+				<label for='date-of-birth' class='form-label'>Ngày sinh:</label>
+				<input type='date' class='form-control' id='date-of-birth' name='date-of-birth'/>
+				<span class='form-message'></span>
+			</div>
+			<div class='col-sm-12 col-12 col-sm-6 col-lg-6 col-xl-4 col-md-6 mb-3 form-group'>
+				<label for='place_of_birth' class='form-label'>Nơi sinh:</label>
+				<input type='text' class='form-control' id='place-of-birth' placeholder='Cần Thơ' name='place-of-birth'/>
+				<span class='form-message'></span>
+			</div>
+			<div class='col-sm-12 col-12 col-sm-6 col-lg-6 col-xl-4 col-md-6 mb-3 form-group'>
+				<label for='phone-number' class='form-label'>Số điện thoại:</label>
+				<input type='text' class='form-control' id='phone-number' placeholder='0123456789' name='phone-number'/>
+				<span class='form-message'></span>
+			</div>
+			<div class="col-lg-6 col-xl-3 col-md-4 col-sm-12 col-12 col-md-6 mb-3 form-group">
+        <label for="city" class="form-label">Thành phố/Tỉnh:</label>
+        <select class="form-control" id="city" name="city" onchange="getProvince(this)">
+          <option value="">-- Chọn --</option>
+
+          {{#each addresses}}
+          	<option value="{{this.name}}">{{this.name}}</option>
+          {{/each}}
+
+        </select>
+        <span class="form-message"></span>
+      </div>
+      <div class="col-lg-6 col-xl-3 col-md-4 col-sm-12 col-12 col-md-6 mb-3 form-group">
+        <label for="province" class="form-label">Quận/Huyện:</label>
+        <select class="form-control" id="province" onchange="getVillage(this)" name="province">
+          <option value="" selected>-- Chọn --</option>
+          {{#each addresses}}
+						{{#each districts}}
+							<option value="{{this.name}}"cityid="{{../this.id}}" provinceid="{{this.id}}">{{this.name}}</option>
+						{{/each}}
+					{{/each}}
+        </select>
+        <span class="form-message"></span>
+      </div>
+      <div class="col-lg-6 col-xl-3 col-md-4 col-sm-12 col-12 col-md-6 mb-3 form-group">
+        <label for="village" class="form-label">Phường/Xã/Thị trấn:</label>
+        <select class="form-control" id="village" name="village">
+          <option value="" selected>-- Chọn --</option>
+           {{#each addresses}}
+						{{#each districts}}
+							{{#each wards}}
+								<option value="{{prefix}} {{this.name}}" provinceid="{{../this.id}}">{{prefix}} {{this.name}}</option>
+							{{/each}}
+						{{/each}}
+					{{/each}}
+        </select>
+        <span class="form-message"></span>
+      </div>
+			<div class='col-lg-6 col-xl-3 col-sm-12 col-12 col-md-6 mb-3 form-group'>
+				<label for='address' class='form-label'>Địa chỉ:</label>
+				<input type='text' class='form-control' id='address' placeholder='311, đường 30 Tháng 4' name='address'/>
+				<span class='form-message'></span>
+			</div>
+			<div class='col-md-4 col-lg-6 col-xl-4 col-sm-12 col-12 col-md-6 mb-3 form-group'>
+				<label for='email' class='form-label'>E-mail:</label>
+				<input type='text' class='form-control' id='email' placeholder='name@xyz.com' name='email'/>
+				<span class='form-message'></span>
+			</div>
+			<div class='col-lg-6 col-xl-4 col-sm-12 col-12 col-md-6 mb-3 form-group'>
+				<label for='blood-group' class='form-label'>Nhóm máu</label>
+				<select class='form-control required' id='blood-group' name='blood-group'>
+					<option value='' selected>-- Chọn --</option>
+					<option value='A+'>A+</option>
+					<option value='B+'>B+</option>
+					<option value='O+'>O+</option>
+					<option value='AB+'>AB+</option>
+					<option value='A-'>A-</option>
+					<option value='B-'>B-</option>
+					<option value='O-'>O-</option>
+					<option value='AB-'>AB-</option>
+				</select>
+				<span class='form-message'></span>
+			</div>
+			<div class='col-lg-6 col-xl-4 col-sm-12 col-12 col-md-6 mb-3 form-group'>
+				<label for='avatar' class='form-label'>Ảnh đại diện:</label>
+				<input type='file' class='form-control' id='avatar' name='avatar'>
+				<span class='form-message'></span>
+			</div>
+			
+			<div class='col-sm-12 col-12 col-md-3 mb-3'>
+				<button type='submit' class='btn btn-primary col-sm-12 col-12 col-md-12'>LƯU</button>
+			</div>
+		</form>
+	</div>
+</div>
